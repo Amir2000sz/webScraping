@@ -1,5 +1,2 @@
-# hello-world
-Hello World repository for Git tutorial
-This is an example repository for the Git tutoial on https://www.w3schools.com
-
-This repository is built step by step in the tutorial.
+hi 
+in this version, we built our web scarper in an oop form and it only opens the target website and do nothing else we will and other thing in another update
