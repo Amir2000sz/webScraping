@@ -1,4 +1,5 @@
 from mrblitit import mrbilit
 
-with mrbilit(True) as bot:
+with mrbilit(False) as bot:
     bot.run()
+    bot.choose_type("bus")
