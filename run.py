@@ -1,6 +1,4 @@
 from mrblitit import mrbilit
 
-def run():
-    driver = mrbilit()
-    driver.run()
-run()
+with mrbilit(True) as bot:
+    bot.run()
