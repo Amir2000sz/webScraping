@@ -1,1 +1,5 @@
 https://mrbilit.com
+https://mrbilit.com/plane-ticket
+https://mrbilit.com/bus-ticket
+https://mrbilit.com/taxi
+https://mrbilit.com/train-ticket
