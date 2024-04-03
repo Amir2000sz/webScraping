@@ -86,3 +86,15 @@ class mrbilit(webdriver.Chrome):
                 print("the date you have choosen is not available")
                 break
     
+    def search(self):
+        searchbut = self.find_element(By.XPATH , '//*[@id="search-bus"]/div[2]/div[4]/button' )
+        searchbut.click()
+    def checkAvailable(self):
+        try:
+            self.implicitly_wait(15)
+            parent_div = self.find_element(By.CLASS_NAME, "card-section-container")
+            child_div = parent_div.find_elements(By.CLASS_NAME , "trip-card-container")
+            print(f"there are {len(child_div)-1} options available right now")
+        except :
+            print(f"there is no bus in this date")
+            
