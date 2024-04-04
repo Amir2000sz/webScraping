@@ -95,6 +95,32 @@ class mrbilit(webdriver.Chrome):
             parent_div = self.find_element(By.CLASS_NAME, "card-section-container")
             child_div = parent_div.find_elements(By.CLASS_NAME , "trip-card-container")
             print(f"there are {len(child_div)-1} options available right now")
+            return len(child_div)
         except :
             print(f"there is no bus in this date")
+            return 0
+    def extract(self):
+        parent_div = self.find_element(By.CLASS_NAME, "card-section-container")
+        child_div = parent_div.find_elements(By.CLASS_NAME , "trip-card-container")
+        
+        listOfOrigins = []
+        listOfDestinations = []
+        listOfStartTime = []
+        listOfReachTime = []
+        listOfPrices = []
+        listwhole = []
+        for i in range(self.checkAvailable()) :
+            listOfOrigins.append(child_div[i].find_elements(By.CLASS_NAME , "location")[0].text)
+            listOfDestinations.append(child_div[i].find_elements(By.CLASS_NAME , "location")[1].text)
+            listOfStartTime.append(child_div[i].find_elements(By.CLASS_NAME , "time")[0].text)
+            child_child = child_div[i].find_elements(By.CLASS_NAME , "time")[1]
+            listOfReachTime.append(child_child.find_element(By.CSS_SELECTOR , "span:nth-of-type(2)").text)
+            listOfPrices.append(child_div[i].find_element(By.CLASS_NAME , "price").text[:3])
             
+        listwhole.append(listOfOrigins)
+        listwhole.append(listOfDestinations)
+        listwhole.append(listOfStartTime)
+        listwhole.append(listOfReachTime)
+        listwhole.append(listOfPrices)
+        return listwhole
+

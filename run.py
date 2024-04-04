@@ -1,6 +1,7 @@
 from mrblitit import mrbilit
 import time
-with mrbilit(False,"ilnhk","jivhk",27) as bot:
+from sqlfile import sql
+with mrbilit(False,"ilnhk","hwtihk",30) as bot:
     bot.implicitly_wait(10)
     bot.choose_type("bus")
     # bot.implicitly_wait(10)
@@ -14,3 +15,6 @@ with mrbilit(False,"ilnhk","jivhk",27) as bot:
     bot.choose_date()
     bot.search()
     bot.checkAvailable()
+    for i in range(bot.checkAvailable()):
+        sql.add(bot.extract()[2][i],bot.extract()[3][i],bot.extract()[4][i])
+    
